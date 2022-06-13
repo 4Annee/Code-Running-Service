@@ -5,7 +5,6 @@ namespace CodeService.Services
 {
     public interface IProgrammingLanguagesService {
         ProgrammingLanguage GetProgrammingLanguageByName(string ProgrammingLang);
-        String GetSkeletonByProgrammingLanguage(Guid codeid);
     }
     public class ProgrammingLanguagesService : IProgrammingLanguagesService
     {
@@ -18,12 +17,6 @@ namespace CodeService.Services
         public ProgrammingLanguage GetProgrammingLanguageByName(string ProgrammingLang)
         {
             return serviceContext.ProgrammingLanguages.FirstOrDefault(pl => pl.Name.ToLower() == ProgrammingLang.ToLower());
-        }
-
-        public string GetSkeletonByProgrammingLanguage(Guid codeid)
-        {
-            
-            return null;
         }
     }
 }

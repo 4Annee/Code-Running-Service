@@ -3,6 +3,6 @@
     public class CodeQuestion
     {
         public Guid Id { get; set; }
-        public List<TestingParams> TestingParams { get; set; }
+        public List<QuestionSkeleton> Skeletons { get; set; }
     }
 }

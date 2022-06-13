@@ -12,7 +12,5 @@
 
 
         public string Code { get; set; }
-
-        public List<SkeletonParam> SkeletonParams { get; set; }
     }
 }

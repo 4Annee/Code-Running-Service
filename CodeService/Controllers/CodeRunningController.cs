@@ -23,15 +23,6 @@ namespace CodeService.Controllers
             this.plservice = plservice;
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCodeSkeleton(Guid id)
-        {
-            // TODO : Get the question by id 
-            return Ok(plservice.GetSkeletonByProgrammingLanguage(id));
-            
-        }
-
-
         [HttpPost]
         public async Task<IActionResult> TryToRunCode(CodeAnswerDto answerDto)
         {
@@ -43,18 +34,6 @@ namespace CodeService.Controllers
             {
                 return BadRequest(ex);
             }
-        }
-
-        // PUT api/<CodeRunningController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<CodeRunningController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

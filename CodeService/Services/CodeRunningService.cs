@@ -22,7 +22,7 @@ namespace CodeService.Services
             // Create The File Containing The Code
             var filename = filMng.CreateFileForCode(codeAnswer.Code, pl.FileExtension);
             // Create A Process
-            var psi = new ProcessStartInfo(pl.Command, filename) { RedirectStandardOutput = true };
+            var psi = new ProcessStartInfo(pl.Command, filename) { RedirectStandardOutput = true ,RedirectStandardError=true};
             // Start The Process Of Code Running
             var proc = Process.Start(psi);
             string Output = "";
@@ -32,15 +32,14 @@ namespace CodeService.Services
             }
             else
             {
+                
                 Console.WriteLine("-------------Start read standard output--------------");
                 //Start reading
                 using (var sr = proc.StandardOutput)
                 {
-                    while (!sr.EndOfStream)
-                    {
-                        Console.WriteLine(Output += sr.ReadLine());
-                    }
-
+                    using var er = proc.StandardError;
+                    Output = sr.ReadToEnd();
+                    Output += er.ReadToEnd();
                     if (!proc.HasExited)
                     {
                         proc.Kill();

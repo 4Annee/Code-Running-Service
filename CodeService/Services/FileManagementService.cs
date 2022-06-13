@@ -5,7 +5,6 @@ namespace CodeService.Services
     public interface IFileManagementService
     {
         string CreateFileForCode(string code, string ext);
-        string ReplaceParamsInFile(string code, TestingParamValue[] paramValues);
         bool DeleteCodeFile(string filename);
 
     }
@@ -25,9 +24,5 @@ namespace CodeService.Services
             return true;
         }
 
-        public string ReplaceParamsInFile(string code, TestingParamValue[] paramValues)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

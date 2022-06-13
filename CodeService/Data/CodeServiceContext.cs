@@ -19,9 +19,6 @@ namespace CodeService.Data
 
         public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
         public DbSet<CodeQuestion> CodeQuestions { get; set; }
-        public DbSet<SkeletonParam> SkeletonParams { get; set; }
         public DbSet<QuestionSkeleton> QuestionSkeletons { get; set; }
-        public DbSet<TestingParams> TestingParams { get; set; }
-        public DbSet<TestingParamValue> TestingParamValues { get; set; }
     }
 }
